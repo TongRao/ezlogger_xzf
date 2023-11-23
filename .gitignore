@@ -1,6 +1,7 @@
 # Common
 dist/
 tests/
+.idea/
 
 # file
 pyproject.toml
