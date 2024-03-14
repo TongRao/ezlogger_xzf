@@ -4,7 +4,7 @@
 ---
 This package is made to easily create logger that is suit for most of the situations, including following functions:
 
-- automatically create "log" folder under the work directory
+- allow user to set log directory
 - the log information will be displayed on stdout, and will also be stored in the .log file
 - allow user to set the information level for both stdout and log file
 - nicely formatted log information, including the timestamp and information type
@@ -12,7 +12,7 @@ This package is made to easily create logger that is suit for most of the situat
 ## Parameters
 - `stdout_level` \<str\>: The log level to be used for stdout ('INFO', 'ERROR', 'DEBUG', or 'WARNING'), Defaults to 'INFO'.
 - `file_level` \<str\>: The log level to be used for the log file ('INFO', 'ERROR', 'DEBUG', or 'WARNING'), Defaults to 'DEBUG'.
-- `log_file` \<str\>: The path and name of the log file to write the log messages, defaults to 'logfile.log'.
+- `log_file` \<str\>: The path and name of the log file to write the log messages, defaults to 'log/log.log'.
 
 ## Returns
 - `logger` \<logging.Logger\>: The initialized logger instance.

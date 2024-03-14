@@ -17,14 +17,14 @@ def initialize_logger(stdout_level='INFO', file_level='DEBUG', log_file='log.log
 
     Examples:
         - Error & Debug (import traceback)
-            - logger.error(f"[func_name]: 错误信息<{e}>")
-            - logger.debug(f"[func_name]: 错误信息<{e}>\n**********\n{traceback.format_exc()}**********")
+            - logger.error(f"[func_name]: error message<{e}>")
+            - logger.debug(f"[func_name]: error message<{e}>\n**********\n{traceback.format_exc()}**********")
 
         - Info
-            - logger.info(f"[func_name]: 日志信息")
+            - logger.info(f"[func_name]: message")
 
         - Warning
-            - logger.warning(f"[func_name]: 警告信息")
+            - logger.warning(f"[func_name]: warning message")
 
     Dependencies:
         import sys, logging, traceback
