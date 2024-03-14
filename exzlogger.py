@@ -1,5 +1,37 @@
 import logging, sys
+import traceback
 from pathlib import Path
+
+
+def magic_exception(logger, msg_format, except_return):
+        """
+        A decorator that logs exceptions to a logger if decoreted function fails.
+
+        Parameters:
+            - logger <logging.Logger>: The logger instance to log the exception messages.
+            - msg_format <str>: The format of the message to be logged.
+            - except_return <any>: The value to be returned if the decorated function fails.
+
+        Returns:
+            - decorator <function>: The decorator function.
+
+        Examples:
+            - @magic_exception(logger, "[func_name]: error message", None)
+            - def func_name():
+                ...
+        """
+        def decorator(func):
+            def wrapper(*args, **kwargs):
+                combined_vars = {**locals(), **kwargs}
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    formatted_msg = msg_format.format(**combined_vars)  
+                    logger.error(formatted_msg)
+                    logger.debug(f"{e}\n**********\n{traceback.format_exc()}**********")
+                    return except_return
+            return wrapper
+        return decorator
 
 
 def initialize_logger(stdout_level='INFO', file_level='DEBUG', log_file='log.log'):
